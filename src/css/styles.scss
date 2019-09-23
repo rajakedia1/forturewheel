@@ -1,0 +1,59 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#form {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  .wrapper {
+    width: 300px;
+    height: auto;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.1);
+		padding: 20px;
+		padding-top: 50px;
+    .inp {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    .inputtext {
+      padding: 5px;
+      font-size: 20px;
+    }
+    .inputbutton {
+      background-color: #22a7f0;
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+  }
+}
+
+#app {
+  .wrapper {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    .inpbutton {
+      background-color: #22a7f0;
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+      margin-left: 40px;
+      font-size: 18px;
+    }
+  }
+}
