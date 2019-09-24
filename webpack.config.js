@@ -4,9 +4,9 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	optimization: {
-		minimize: true
+		minimize: false
 	},
-	mode: 'production',
+	mode: 'development',
 	module: {
 		rules: [
 			{

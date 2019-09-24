@@ -27,22 +27,17 @@ function rotateWheel() {
 function stopWheel() {
   clearTimeout(afterSpin);
 	var degrees = (func.startangle.get() * 180) / Math.PI ;
-	console.log(spinAngleStart, func.startangle.get(), func.startangle.get() / Math.PI *180);
+	// console.log(spinAngleStart, func.startangle.get(), func.startangle.get() / Math.PI *180);
 	var mainArc = 2 * Math.PI / func.Team.get();
   var mainArcd = (mainArc * 180) / Math.PI;
   var index = Math.floor((360 - (degrees % 360)) / mainArcd);
 	ctx.save();
 	ctx.fillStyle = "white";
   ctx.font = "bold 120px Helvetica, Arial";
-  var text = index + 1;
+	var text = func.TeamId.get()[index];
+	func.CurrentTeam.set(text);
   ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 40);
   ctx.restore();
-}
-
-function easeOut(t, b, c, d) {
-  var ts = (t /= d) * t;
-  var tc = ts * t;
-  return b + c * (tc + -3 * ts + 3 * t);
 }
 
 function easeInOut(t, b, c, d) {

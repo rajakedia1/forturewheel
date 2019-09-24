@@ -7,29 +7,39 @@ export function initialize() {
   ctx = canvas.getContext("2d");
 }
 
+let outsideRadius = 200;
+let textRadius = 130;
+let insideRadius = 0;
+const shift = 250;
+
 export function drawMain() {
   if (canvas.getContext) {
-    ctx.clearRect(0, 0, 500, 500);
+    ctx.clearRect(0, 0, 500, func.canvasHeight);
     const img = new Image();
     img.src = "./src/mg/back.png";
+
     img.onload = function() {
+      // ctx.fill();
       ctx.drawImage(img, 0, 0, 500, 556);
+      
       drawWheel();
+      
+      
+    };
+    const img2 = new Image();
+    img2.src = "./src/mg/ref.png";
+    img2.onload = function() {
+      ctx.drawImage(img2, 0, 556, 500, 700);
     };
   }
 }
-let outsideRadius = 200;
-let textRadius = 140;
-let insideRadius = 2;
-const shift = 250;
 
 export function drawWheel() {
   if (canvas.getContext) {
-    ctx.strokeStyle = "white";
-    ctx.lineWidth = 10;
 
-    ctx.font = "bold 20px Helvetica, Arial";
+    ctx.font = "bold 30px Helvetica, Arial";
 
+    ctx.fillStyle = "white";
     for (let i = 0; i < func.Team.get(); i++) {
       drawArc(i);
     }
@@ -38,14 +48,16 @@ export function drawWheel() {
 }
 
 function drawArc(i) {
-	const arc = 2 * Math.PI / func.Team.get();
+  const nums = func.TeamId.get();
+  const arc = (2 * Math.PI) / func.Team.get();
   let angle = func.startangle.get() + i * arc;
   ctx.fillStyle = func.colors[i];
 
   ctx.beginPath();
-  ctx.arc(shift, shift, outsideRadius, angle, angle + arc - 0.02, false);
-  ctx.arc(shift, shift, insideRadius, angle + arc - 0.02, angle, true);
-  ctx.stroke();
+  let ma = angle + arc;
+  ctx.arc(shift, shift, outsideRadius, angle, ma, false);
+  ctx.arc(shift, shift, insideRadius, ma, angle, true);
+  // ctx.stroke();
   ctx.fill();
 
   ctx.save();
@@ -55,13 +67,12 @@ function drawArc(i) {
     shift + Math.sin(angle + arc / 2) * textRadius
   );
   ctx.rotate(angle + arc / 2 + Math.PI / 2);
-  let text = i + 1;
+  let text = nums[i];
   ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
   ctx.restore();
 }
 
 function drawArrow() {
-  //Arrow
   ctx.fillStyle = "black";
   ctx.beginPath();
   ctx.moveTo(shift + (outsideRadius + 35), shift - 10);

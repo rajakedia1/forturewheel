@@ -10,25 +10,36 @@
     <div id="app"></div>
 
     <div id="form">
-      <div class="wrapper">
-        <div class="inp">
-          <input
-            type="text"
-            id="teamInput"
-            placeholder="Enter No. of Teams"
-            name="team"
-						class="inputtext"
-						autocomplete="off"
-          />
-        </div>
-        <div class="inp">
-          <input
-            type="button"
-            id="teamSubmit"
-            class="inputbutton"
-						value="Submit"
-						
-          />
+      <div class="form">
+        <div class="wrapper">
+          <div class="content">
+            <div class="left">
+              <img src="./src/mg/logo2.png" class="img" />
+            </div>
+
+            <div class="right">
+              <h2 class="title">Team Details</h2>
+              <div class="inp">
+                <input
+                  type="number"
+                  id="teamInput"
+                  placeholder="Enter No. of Teams"
+                  name="team"
+                  class="inputtext"
+									autocomplete="off"
+									required
+                />
+              </div>
+              <div class="inp">
+                <input
+                  type="button"
+                  id="teamSubmit"
+                  class="inputbutton"
+                  value="Submit"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
