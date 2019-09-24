@@ -26,6 +26,7 @@ function rotateWheel() {
 
 function stopWheel() {
   clearTimeout(afterSpin);
+  func.spinstate.set(false);
 	var degrees = (func.startangle.get() * 180) / Math.PI ;
 	// console.log(spinAngleStart, func.startangle.get(), func.startangle.get() / Math.PI *180);
 	var mainArc = 2 * Math.PI / func.Team.get();
@@ -48,6 +49,7 @@ function easeInOut(t, b, c, d) {
 }
 
 export function startspin() {
+  func.spinstate.set(true);
   spinAngleStart = Math.random() * 10 + 10;
   currentTime = 0;
   TotalTime = 4000;

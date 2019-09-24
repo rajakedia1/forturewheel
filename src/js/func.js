@@ -9,21 +9,6 @@ export function append(p, cl) {
   cl.map(i => p.appendChild(i));
 }
 
-export const colors2 = [
-  "#B8D430",
-  "#3AB745",
-  "#029990",
-  "#3501CB",
-  "#2E2C75",
-  "#673A7E",
-  "#CC0071",
-  "#F80120",
-  "#F35B20",
-  "#FB9A00",
-  "#FFCC00",
-  "#FEF200"
-];
-
 export const colors = [
   '#ec7324',
   '#be1f31',
@@ -32,13 +17,14 @@ export const colors = [
   '#2e302f',
   '#91338b',
   '#695ea3',
-  '#ec7324',
-  '#be1f31',
-  '#1da4db',
-  '#4bb050',
-  '#2e302f',
-  '#91338b',
-  '#695ea3'
+  "#2E2C75",
+  "#673A7E",
+  "#CC0071",
+  "#F80120",
+  "#F35B20",
+  "#FB9A00",
+  "#FFCC00",
+  "#FEF200"
 ];
 
 export const totalTeam = 12;
@@ -67,6 +53,8 @@ function settergetter(inp) {
 		set: set
 	}
 }
+
+export const spinstate = new settergetter(true);
 
 export const Team = new settergetter();
 

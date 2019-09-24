@@ -4,6 +4,7 @@ import { drawMain, initialize } from "./js/canvas";
 import { teamNumber } from "./js/form";
 
 export const reload = function() {
+	if(func.spinstate.get()) return;
   let nums = func.TeamId.get();
   // nums.inde
   if (nums.length < 1) return;
@@ -34,7 +35,8 @@ export const main = function() {
   const reloadbutton = func.create("input", ["inpbutton"]);
   reloadbutton.value = "Go Again";
   reloadbutton.type = "button";
-  reloadbutton.onclick = reload;
+	reloadbutton.onclick = reload;
+	reloadbutton.style.backgroundColor = 'red';
 
   const title = func.create("div", ["title"], "Spin the Wheel");
 
