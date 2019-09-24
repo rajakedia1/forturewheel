@@ -7,7 +7,7 @@ export const reload = function() {
 	if(func.spinstate.get()) return;
   let nums = func.TeamId.get();
   // nums.inde
-  if (nums.length < 1) return;
+  if (nums.length <= 1) return;
   nums.splice(nums.indexOf(func.CurrentTeam.get()), 1);
   func.Team.set(func.Team.get() - 1);
   main();
