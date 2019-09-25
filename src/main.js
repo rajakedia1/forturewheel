@@ -3,10 +3,22 @@ import { startspin } from "./js/control";
 import { drawMain, initialize } from "./js/canvas";
 import { teamNumber } from "./js/form";
 
+document.querySelector("#modal #teamSubmit").addEventListener('click', () => {
+	console.log('1');
+	document.location.reload()
+});
+
 export const reload = function() {
 	if(func.spinstate.get()) return;
+	func.spinstate.set(true);
   let nums = func.TeamId.get();
-  // nums.inde
+	// nums.inde
+	if(nums.length === 1) {
+		document.getElementById('modal').style.display = 'block';
+		setTimeout(() => {
+			document.getElementById('modal').classList.add('show');
+		}, 0); 
+	}
   if (nums.length <= 1) return;
   nums.splice(nums.indexOf(func.CurrentTeam.get()), 1);
   func.Team.set(func.Team.get() - 1);
@@ -56,7 +68,14 @@ export const main = function() {
   func.append(wrapper, [canvaswrapper, buttonset]);
 
   const app = func.create("div", ["app"]);
-  func.append(app, [wrapper]);
+	func.append(app, [wrapper]);
+	// el.innerHTML = app;
+
+	if(el.children.length > 0) {
+		el.removeChild(el.children[0]);
+	}
+	
+
   func.append(el, [app]);
   initialize();
 
@@ -64,8 +83,8 @@ export const main = function() {
 };
 
 const form = (function() {
-  const inp = document.getElementById("teamInput");
+  const inp = document.querySelector("#form #teamInput");
   // var x = { value: 3 };
   // document.getElementById("teamSubmit").onclick = teamNumber(x);
-  document.getElementById("teamSubmit").onclick = () => startAnimation(inp);
+  document.querySelector("#form #teamSubmit").onclick = () => startAnimation(inp);
 })();
