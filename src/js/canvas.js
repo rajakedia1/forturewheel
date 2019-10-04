@@ -68,7 +68,7 @@ function drawArc(i) {
   const nums = func.TeamId.get();
   const arc = (2 * Math.PI) / func.Team.get();
   let angle = func.startangle.get() + i * arc;
-  ctx.fillStyle = func.colors[i];
+  ctx.fillStyle = func.colors[i % 15];
 
   ctx.beginPath();
   let nextangle = angle + arc;
