@@ -1,13 +1,18 @@
-export function create(ele, cl, val) {
-  const a = document.createElement(ele);
-  if (cl) cl.map(i => a.classList.add(i));
-  if (val) a.innerHTML = val;
-  return a;
+// It Creates a New DOM element with type elem, class as classlist, and value as val
+export function create(elem, classlist, val) {
+  const el = document.createElement(elem);
+  if (classlist) classlist.map(cl => el.classList.add(cl));
+  if (val) el.innerHTML = val;
+  return el;
 }
 
-export function append(p, cl) {
-  cl.map(i => p.appendChild(i));
+//  It appends Child Nodes into a Parent element,
+export function append(parent, childNodeList) {
+  childNodeList.map(childnode => parent.appendChild(childnode));
 }
+
+// List of Colors in the Wheel.
+// Add more or Play with it if you want :p.
 
 export const colors = [
   '#ec7324',
@@ -27,26 +32,28 @@ export const colors = [
   "#FEF200"
 ];
 
-export const totalTeam = 12;
+// export const totalTeam = 12;
 
-export let Teams = 8;
+// export let Teams = 8;
 
-export let arc = 2 * Math.PI / Teams;
+// export let arc = 2 * Math.PI / Teams;
 export let spinTimeout = null;
 
 export let spinArcStart = 10;
 export let spinTime = 0;
 export let spinTimeTotal = 0;
+
+export const canvasWidth = 600;
 export const canvasHeight = 700;
 
-
+//  A basic SetterGetter function
 function settergetter(inp) {
-	var value = inp ? inp : 0;
+	let value = inp ? inp : 0;
 	function get() {
 		return value;
 	}
-	function set(v) {
-		value = v;
+	function set(val) {
+		value = val;
 	}
 	return {
 		get: get,
@@ -54,12 +61,19 @@ function settergetter(inp) {
 	}
 }
 
+// It stores if wheel can be reloaded or not.
+// It can be understood as if Wheel is rotating or it already has been reloaded with new team,
+//  then the user should not be able to reload again. At that time, it will give true.
 export const spinstate = new settergetter(true);
 
+//  Team stores the total number of teams in current game.
 export const Team = new settergetter();
 
+// TeamId Stores the active Team Id that are playing the Game.
 export const TeamId = new settergetter();
 
+// CurrentTeam stores the currentTeam that is selected when wheel stops running.
 export const CurrentTeam = new settergetter();
 
+//  It Stores the start angle of the wheel
 export const startangle = new settergetter();

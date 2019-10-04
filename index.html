@@ -1,74 +1,65 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./src/css/styles.css" />
-  </head>
-  <body>
-			<div id="modal" class="hide">
-					<div class="form">
-						<div class="wrapper">
-							<div class="content">
-								<div class="left">
-									<img src="./src/mg/logo2.png" class="img" />
-								</div>
-		
-								<div class="right">
-									<h2 class="title">Start Game Again</h2>
-									
-									<div class="inp">
-										<input
-											type="button"
-											id="teamSubmit"
-											class="inputbutton"
-											value="Reload"
-										/>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 
-    <div id="app"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Fortune Spin Wheel</title>
+  <link rel="stylesheet" href="./src/css/styles.css" />
+</head>
 
-    <div id="form">
-      <div class="form">
-        <div class="wrapper">
-          <div class="content">
-            <div class="left">
-              <img src="./src/mg/logo2.png" class="img" />
-            </div>
+<body>
 
-            <div class="right">
-              <h2 class="title">Team Details</h2>
-              <div class="inp">
-                <input
-                  type="number"
-                  id="teamInput"
-                  placeholder="Enter No. of Teams"
-                  name="team"
-                  class="inputtext"
-                  autocomplete="off"
-                  required
-                />
-              </div>
-              <div class="inp">
-                <input
-                  type="button"
-                  id="teamSubmit"
-                  class="inputbutton"
-                  value="Submit"
-                />
-              </div>
+  <!-- Modal Goes Here -->
+  <div id="modal" class="hide">
+    <div class="form">
+      <div class="wrapper">
+        <div class="content">
+          <div class="left">
+            <!-- Using React Logo since it was featured in ReactIndia -->
+            <img src="./src/mg/logo.png" class="img" />
+          </div>
+
+          <div class="right">
+            <h2 class="title">Start Game Again</h2>
+
+            <div class="inp">
+              <input type="button" id="teamSubmit" class="inputbutton" value="Reload" />
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="./dist/bundle.js"></script>
-  </body>
+  <!-- Main App Goes Here -->
+  <div id="app"></div>
+
+  <!-- Form Goes Here -->
+  <div id="form">
+    <div class="form">
+      <div class="wrapper">
+        <div class="content">
+          <div class="left">
+            <img src="./src/mg/logo.png" class="img" />
+          </div>
+
+          <div class="right">
+            <h2 class="title">Team Details</h2>
+            <div class="inp">
+              <input type="number" id="teamInput" placeholder="Enter No. of Teams" name="team" class="inputtext"
+                autocomplete="off" required />
+            </div>
+            <div class="inp">
+              <input type="button" id="teamSubmit" class="inputbutton" value="Submit" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./dist/bundle.js"></script>
+</body>
+
 </html>
